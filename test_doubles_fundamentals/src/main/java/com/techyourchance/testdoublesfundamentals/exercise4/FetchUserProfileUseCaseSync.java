@@ -6,6 +6,8 @@ import com.techyourchance.testdoublesfundamentals.exercise4.networking.UserProfi
 import com.techyourchance.testdoublesfundamentals.exercise4.users.User;
 import com.techyourchance.testdoublesfundamentals.exercise4.users.UsersCache;
 
+import static com.techyourchance.testdoublesfundamentals.exercise4.networking.UserProfileHttpEndpointSync.*;
+
 public class FetchUserProfileUseCaseSync {
 
     public enum UseCaseResult {
@@ -27,11 +29,15 @@ public class FetchUserProfileUseCaseSync {
         EndpointResult endpointResult;
         try {
             // the bug here is that userId is not passed to endpoint
-            endpointResult = mUserProfileHttpEndpointSync.getUserProfile("");
+            endpointResult = mUserProfileHttpEndpointSync.getUserProfile(userId);
+            if(isSuccessfulEndpointResult(endpointResult)){
+                mUsersCache.cacheUser(
+                        new User(endpointResult.getUserId(), endpointResult.getFullName(), endpointResult.getImageUrl()));
+            } else {
+                // Do not cache
+            }
             // the bug here is that I don't check for successful result and it's also a duplication
             // of the call later in this method
-            mUsersCache.cacheUser(
-                    new User(userId, endpointResult.getFullName(), endpointResult.getImageUrl()));
         } catch (NetworkErrorException e) {
             return UseCaseResult.NETWORK_ERROR;
         }
@@ -39,13 +45,17 @@ public class FetchUserProfileUseCaseSync {
         if (isSuccessfulEndpointResult(endpointResult)) {
             mUsersCache.cacheUser(
                     new User(userId, endpointResult.getFullName(), endpointResult.getImageUrl()));
+            return UseCaseResult.SUCCESS;
+        } else {
+
+            return UseCaseResult.FAILURE;
         }
 
         // the bug here is that I return wrong result in case of an unsuccessful server response
-        return UseCaseResult.SUCCESS;
+//        return UseCaseResult.SUCCESS;
     }
 
     private boolean isSuccessfulEndpointResult(EndpointResult endpointResult) {
-        return endpointResult.getStatus() == UserProfileHttpEndpointSync.EndpointResultStatus.SUCCESS;
+        return endpointResult.getStatus() == EndpointResultStatus.SUCCESS;
     }
 }

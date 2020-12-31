@@ -1,4 +1,4 @@
-Description:
+ Description:
 Your goal is to implement FetchReputationUseCaseSync class using Uncle Bob's TDD technique.
 
 The three rules:

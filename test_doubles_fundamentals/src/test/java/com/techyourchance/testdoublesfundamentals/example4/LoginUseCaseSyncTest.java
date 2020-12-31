@@ -7,6 +7,7 @@ import com.techyourchance.testdoublesfundamentals.example4.eventbus.LoggedInEven
 import com.techyourchance.testdoublesfundamentals.example4.networking.LoginHttpEndpointSync;
 import com.techyourchance.testdoublesfundamentals.example4.networking.NetworkErrorException;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 

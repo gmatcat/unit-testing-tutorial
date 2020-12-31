@@ -17,6 +17,10 @@ public class ExerciseSolution3 {
         SUT = new IntervalsAdjacencyDetector();
     }
 
+    /*
+        <unitOfWork>_<stateUnderTest>_<expectedBehavior>
+     */
+
     @Test
     public void isAdjacent_interval1BeforeInterval2_falseReturned() throws Exception {
         Interval interval1 = new Interval(-1, 5);
