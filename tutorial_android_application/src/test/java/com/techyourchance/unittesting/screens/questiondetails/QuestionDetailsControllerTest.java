@@ -32,6 +32,11 @@ public class QuestionDetailsControllerTest {
 
     }
 
+    @Test
+    public void  asodiasd(){
+
+    }
+
     // region helper methods
 
     //endregion helper methods

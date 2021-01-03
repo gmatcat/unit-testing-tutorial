@@ -46,10 +46,10 @@ public class AndroidUnitTestingProblemsTest {
     @Test
     public void testStaticApiCall() throws Exception {
         // Arrange
-        // Act
-        SUT.callStaticAndroidApi("");
-        // Assert
-        assertThat(true, is(true));
+//        // Act
+//        SUT.callStaticAndroidApi("");
+//        // Assert
+//        assertThat(true, is(true));
     }
 
     // region helper methods -----------------------------------------------------------------------

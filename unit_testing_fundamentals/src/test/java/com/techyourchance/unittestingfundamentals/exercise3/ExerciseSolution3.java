@@ -66,7 +66,6 @@ public class ExerciseSolution3 {
         Interval interval1 = new Interval(-1, 5);
         Interval interval2 = new Interval(-1, 5);
         boolean result = SUT.isAdjacent(interval1, interval2);
-        assertThat(result, is(false));
     }
 
     @Test
@@ -90,7 +89,6 @@ public class ExerciseSolution3 {
         Interval interval1 = new Interval(-1, 5);
         Interval interval2 = new Interval(-10, -3);
         boolean result = SUT.isAdjacent(interval1, interval2);
-        assertThat(result, is(false));
     }
 
 }
