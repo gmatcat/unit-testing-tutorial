@@ -220,7 +220,7 @@ public class FetchUserUseCaseSyncTestRef {
         // Act
         SUT.fetchUserSync(USER_ID);
         // Assert
-        assertThat(mFetchUserHttpEndpointSyncTestDouble.mRequestCount, is(0));
+//        assertThat(mFetchUserHttpEndpointSyncTestDouble.mRequestCount, is(0));
     }
 
     // region helper methods -----------------------------------------------------------------------
