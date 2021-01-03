@@ -10,6 +10,7 @@ public class StringRetriever {
     }
 
     public String getString(int id) {
+        int x = 2;
         return mContext.getString(id);
     }
 }
